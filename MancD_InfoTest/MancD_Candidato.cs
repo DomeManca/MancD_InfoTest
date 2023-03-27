@@ -61,5 +61,9 @@ namespace MancD_InfoTest
                 return false;
         }
         public abstract bool CompareTo(MancD_Candidato c);
+        public override int GetHashCode()
+        {
+            return (MancD_Matricola, MancD_Nome).GetHashCode();
+        }
     }
 }
