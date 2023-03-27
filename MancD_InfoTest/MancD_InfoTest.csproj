@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="MancD_Candidato.cs" />
     <Compile Include="MancD_Disoccupato.cs" />
+    <Compile Include="MancD_Lavoratore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

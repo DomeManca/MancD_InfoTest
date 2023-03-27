@@ -66,7 +66,7 @@ namespace MancD_InfoTest
         }
         public override bool isIdoneo()
         {
-            if (MancD_voto >= 72)
+            if (punteggio() >= 72)
                 return true;
             else
                 return false;
