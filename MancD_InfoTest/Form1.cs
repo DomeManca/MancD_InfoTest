@@ -66,5 +66,6 @@ namespace MancD_InfoTest
             }
             return lista;
         }
+        //no ordinamento
     }
 }
