@@ -43,5 +43,23 @@ namespace MancD_InfoTest
         }
         public abstract bool isIdoneo();
         public abstract int punteggio();
+
+        public override string ToString()
+        {
+            string s = $"{MancD_Matricola}:{MancD_Nome}";
+            return s;
+        }
+        public bool Equals(MancD_Candidato c)
+        {
+            if (c == null)
+                return false;
+            if (this == c)
+                return true;
+            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome)
+                return true;
+            else
+                return false;
+        }
+        public abstract bool CompareTo(MancD_Candidato c);
     }
 }

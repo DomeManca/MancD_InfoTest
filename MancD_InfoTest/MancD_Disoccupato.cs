@@ -13,10 +13,12 @@ namespace MancD_InfoTest
 
         public int MancD_voto
         {
-            get { 
-                return _MancD_voto; 
+            get
+            {
+                return _MancD_voto;
             }
-            set {
+            set
+            {
                 if (value >= 0 && value <= 110)
                     _MancD_voto = value;
                 else
@@ -51,7 +53,7 @@ namespace MancD_InfoTest
             MancD_voto = 0;
             MancD_lode = false;
         }
-        public MancD_Disoccupato(int n,bool b,int matricola, string nome) : base(matricola, nome)
+        public MancD_Disoccupato(int n, bool b, int matricola, string nome) : base(matricola, nome)
         {
             MancD_voto = n;
             MancD_lode = b;
@@ -67,6 +69,33 @@ namespace MancD_InfoTest
         public override bool isIdoneo()
         {
             if (punteggio() >= 72)
+                return true;
+            else
+                return false;
+        }
+        public override string ToString()
+        {
+            string l = null;
+            if (MancD_lode)
+                l = "e lode";
+
+            string s = $"{MancD_Matricola}:{MancD_Nome};voto:{MancD_voto} " + l;
+            return s;
+        }
+        public bool Equals(MancD_Disoccupato c)
+        {
+            if (c == null)
+                return false;
+            if (this == c)
+                return true;
+            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome || this.MancD_voto == c.MancD_voto || this.MancD_lode == c.MancD_lode)
+                return true;
+            else
+                return false;
+        }
+        public override bool CompareTo(MancD_Candidato c)
+        {
+            if (this.punteggio() == c.punteggio())
                 return true;
             else
                 return false;

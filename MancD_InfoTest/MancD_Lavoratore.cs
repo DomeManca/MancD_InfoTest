@@ -41,5 +41,28 @@ namespace MancD_InfoTest
             else
                 return false;
         }
+        public override string ToString()
+        {
+            string s = $"{MancD_Matricola}:{MancD_Nome};esperienze:{MancD_esperienze}";
+            return s;
+        }
+        public bool Equals(MancD_Lavoratore c)
+        {
+            if (c == null)
+                return false;
+            if (this == c)
+                return true;
+            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome || this.MancD_esperienze == c.MancD_esperienze)
+                return true;
+            else
+                return false;
+        }
+        public override bool CompareTo(MancD_Candidato c)
+        {
+            if (this.punteggio() == c.punteggio())
+                return true;
+            else
+                return false;
+        }
     }
 }
