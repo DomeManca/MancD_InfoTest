@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MancD_InfoTest
 {
-    public class MancD_Candidato
+    public abstract class MancD_Candidato
     {
         private int _MancD_Matricola;
         private string _MancD_Nome;
@@ -41,13 +41,7 @@ namespace MancD_InfoTest
             MancD_Matricola = n;
             MancD_Nome = s;
         }
-        public abstract bool isIdoneo()
-        {
-            return true;
-        }
-        public abstract int punteggio()
-        {
-            return 0;
-        }
+        public abstract bool isIdoneo();
+        public abstract int punteggio();
     }
 }
