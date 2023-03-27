@@ -82,23 +82,31 @@ namespace MancD_InfoTest
             string s = $"{MancD_Matricola}:{MancD_Nome};voto:{MancD_voto} " + l;
             return s;
         }
-        public bool Equals(MancD_Disoccupato c)
+        public bool Equals(MancD_Disoccupato d)
         {
-            if (c == null)
+            if (d == null)
                 return false;
-            if (this == c)
+
+            if (this == d)
                 return true;
-            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome || this.MancD_voto == c.MancD_voto || this.MancD_lode == c.MancD_lode)
-                return true;
-            else
+
+            if (this.MancD_voto != d.MancD_voto)
                 return false;
+            if (this.MancD_lode != d.MancD_lode)
+                return false;
+
+            return true;
         }
-        public override bool CompareTo(MancD_Candidato c)
+        public int CompareTo(MancD_Disoccupato d)
         {
-            if (this.punteggio() == c.punteggio())
-                return true;
+            if (d == null)
+                return 1;
+            if (this.punteggio() == d.punteggio())
+                return 0;
+            else if (this.punteggio() < d.punteggio())
+                return -1;
             else
-                return false;
+                return 1;
         }
     }
 }

@@ -46,23 +46,29 @@ namespace MancD_InfoTest
             string s = $"{MancD_Matricola}:{MancD_Nome};esperienze:{MancD_esperienze}";
             return s;
         }
-        public bool Equals(MancD_Lavoratore c)
+        public bool Equals(MancD_Lavoratore l)
         {
-            if (c == null)
+            if (l == null)
                 return false;
-            if (this == c)
+
+            if (this == l)
                 return true;
-            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome || this.MancD_esperienze == c.MancD_esperienze)
-                return true;
-            else
+
+            if (this.MancD_esperienze != l.MancD_esperienze)
                 return false;
+
+            return true;
         }
-        public override bool CompareTo(MancD_Candidato c)
+        public int CompareTo(MancD_Lavoratore l)
         {
-            if (this.punteggio() == c.punteggio())
-                return true;
+            if (l == null)
+                return 1;
+            if (this.punteggio() == l.punteggio())
+                return 0;
+            else if (this.punteggio() < l.punteggio())
+                return -1;
             else
-                return false;
+                return 1;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MancD_InfoTest
 {
-    public abstract class MancD_Candidato
+    public abstract class MancD_Candidato : IEquatable<MancD_Candidato>, IComparable<MancD_Candidato>
     {
         private int _MancD_Matricola;
         private string _MancD_Nome;
@@ -53,17 +53,28 @@ namespace MancD_InfoTest
         {
             if (c == null)
                 return false;
+
             if (this == c)
                 return true;
-            if (this.MancD_Matricola == c.MancD_Matricola || this.MancD_Nome == c.MancD_Nome)
-                return true;
-            else
+
+            if (this.MancD_Matricola != c.MancD_Matricola)
                 return false;
+            if (this.MancD_Nome != c.MancD_Nome)
+                return false;
+
+            return true;
         }
-        public abstract bool CompareTo(MancD_Candidato c);
-        public override int GetHashCode()
+        public int CompareTo(MancD_Candidato c)
         {
-            return (MancD_Matricola, MancD_Nome).GetHashCode();
+            if (c == null)
+                return 1;
+            if (this.punteggio() == c.punteggio())
+                return 0;
+            else if (this.punteggio() < c.punteggio())
+                return -1;
+            else
+                return 1;
         }
+        public override int GetHashCode() => (this.MancD_Matricola, this.MancD_Nome).GetHashCode();
     }
 }
